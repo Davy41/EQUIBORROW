@@ -25,7 +25,7 @@ namespace EQUIBORROW
             {
                 con.Open();
             }
-            string query = @"INSERT INTO Equipment (ID, NAME, DESCRIPTION, TYPE, DATE) VALUES(@idf,@name,@descr,@typ,@dat)";
+            string query = @"INSERT INTO Equipment (identification, NAME, DESCRIPTION, TYPE, DATE) VALUES(@idf,@name,@descr,@typ,@dat)";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Connection = con;
             cmd.Parameters.AddWithValue("@idf", identBox.Text.Trim());
@@ -68,7 +68,7 @@ namespace EQUIBORROW
             {
                 con.Open();
             }
-            string query = "UPDATE  Equipment SET VALUES(@idf,@name,@descr,@typ,@dat)";
+            string query = "UPDATE Equipment SET NAME = @name, DESCRIPTION = @descr, TYPE = @typ, DATE = @dat WHERE identification = @idf";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Connection = con;
             cmd.Parameters.AddWithValue("@idf", identBox.Text.Trim());
@@ -78,7 +78,7 @@ namespace EQUIBORROW
             cmd.Parameters.AddWithValue("@dat", regDate.Value);
             cmd.ExecuteNonQuery();
             con.Close();
-            MessageBox.Show(identBox.Text.Trim() + " is saved successfully");
+            MessageBox.Show(identBox.Text.Trim() + " is updated successfully");
             DisplayData();
         }
     }
