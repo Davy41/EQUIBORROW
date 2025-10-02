@@ -17,7 +17,7 @@ namespace EQUIBORROW
         {
             InitializeComponent();
         }
-        string constr = "Data Source=DESKTOP-7AE7D3R;Initial Catalog=EQUIIBORROW;Integrated Security=True";
+        string constr = "Data Source=DESKTOP-7AE7D3R;Initial Catalog=EquiBorrow;Integrated Security=True";
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(constr);
@@ -25,7 +25,7 @@ namespace EQUIBORROW
             {
                 con.Open();
             }
-            string query = @"INSERT INTO Equipment (identification, NAME, DESCRIPTION, TYPE, DATE) VALUES(@idf,@name,@descr,@typ,@dat)";
+            string query = @"INSERT INTO Equipment (Identification, NAME, DESCRIPTION, TYPE, regDATE) VALUES(@idf,@name,@descr,@typ,@dat)";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Connection = con;
             cmd.Parameters.AddWithValue("@idf", identBox.Text.Trim());
@@ -68,7 +68,7 @@ namespace EQUIBORROW
             {
                 con.Open();
             }
-            string query = "UPDATE Equipment SET NAME = @name, DESCRIPTION = @descr, TYPE = @typ, DATE = @dat WHERE identification = @idf";
+            string query = "UPDATE Equipment SET NAME = @name, DESCRIPTION = @descr, TYPE = @typ, regDATE = @dat WHERE Identification = @idf";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Connection = con;
             cmd.Parameters.AddWithValue("@idf", identBox.Text.Trim());
@@ -80,6 +80,11 @@ namespace EQUIBORROW
             con.Close();
             MessageBox.Show(identBox.Text.Trim() + " is updated successfully");
             DisplayData();
+        }
+
+        private void EquipmentView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 

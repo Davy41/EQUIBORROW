@@ -131,6 +131,7 @@
             this.EquipmentView.RowTemplate.Height = 28;
             this.EquipmentView.Size = new System.Drawing.Size(473, 348);
             this.EquipmentView.TabIndex = 9;
+            this.EquipmentView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EquipmentView_CellContentClick);
             // 
             // RegisterBtn
             // 
