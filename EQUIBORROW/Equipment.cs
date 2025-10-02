@@ -40,7 +40,7 @@ namespace EQUIBORROW
 
         }
 
-        private void Equipment_Load(object sender, EventArgs e)
+        private void Equipment_Load(object sender, EventArgs e) 
         {
             DisplayData();
 
