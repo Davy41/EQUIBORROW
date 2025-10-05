@@ -47,6 +47,8 @@
             this.regDate = new System.Windows.Forms.DateTimePicker();
             this.quaBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.EquipmentView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -224,7 +226,7 @@
             this.quaBox.Location = new System.Drawing.Point(85, 586);
             this.quaBox.Multiline = true;
             this.quaBox.Name = "quaBox";
-            this.quaBox.Size = new System.Drawing.Size(439, 31);
+            this.quaBox.Size = new System.Drawing.Size(439, 46);
             this.quaBox.TabIndex = 20;
             // 
             // label7
@@ -237,12 +239,34 @@
             this.label7.TabIndex = 19;
             this.label7.Text = "Quantity";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1136, 29);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(101, 39);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Report";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Monotype Corsiva", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(34, 29);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(208, 34);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "EQQUIBORROW";
+            // 
             // Equipment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(1243, 644);
+            this.ClientSize = new System.Drawing.Size(1245, 695);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.quaBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.regDate);
@@ -293,5 +317,7 @@
         private System.Windows.Forms.DateTimePicker regDate;
         private System.Windows.Forms.TextBox quaBox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -179,6 +179,56 @@ namespace EQUIBORROW
             this.Hide();
         }
 
-        
+        private void ReturnBtn_Click(object sender, EventArgs e)
+        {
+            // Ensure a borrowed item is selected
+            if (BorrowedItemView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a borrowed item to return.");
+                return;
+            }
+
+            // Get borrowid and eqptid from the selected row
+            string borrowId = BorrowedItemView.SelectedRows[0].Cells["borrowid"].Value.ToString();
+            string equipmentId = BorrowedItemView.SelectedRows[0].Cells["eqptid"].Value.ToString();
+
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                con.Open();
+                SqlTransaction transaction = con.BeginTransaction();
+                try
+                {
+                    // 1. Update Borrowing: set returndate to now
+                    string updateBorrowingQuery = "UPDATE Borrowing SET returndate = @returndate WHERE borrowid = @borrowid";
+                    SqlCommand updateBorrowingCmd = new SqlCommand(updateBorrowingQuery, con, transaction);
+                    updateBorrowingCmd.Parameters.AddWithValue("@returndate", DateTime.Now);
+                    updateBorrowingCmd.Parameters.AddWithValue("@borrowid", borrowId);
+                    updateBorrowingCmd.ExecuteNonQuery();
+
+                    // 2. Increment Equipment quantity
+                    string updateEquipQuery = "UPDATE Equipment SET quantity = quantity + 1 WHERE Identification = @equipmentId";
+                    SqlCommand updateEquipCmd = new SqlCommand(updateEquipQuery, con, transaction);
+                    updateEquipCmd.Parameters.AddWithValue("@equipmentId", equipmentId);
+                    updateEquipCmd.ExecuteNonQuery();
+
+                    transaction.Commit();
+
+                    MessageBox.Show("Equipment returned successfully!");
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    MessageBox.Show("An error occurred while returning equipment.\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            DisplayBorrowings();
+            LoadAllEquipment();
+        }
+
+        private void panel13_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

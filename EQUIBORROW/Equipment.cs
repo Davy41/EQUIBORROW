@@ -38,6 +38,10 @@ namespace EQUIBORROW
             con.Close();
             MessageBox.Show(identBox.Text.Trim()+" is saved successfully");
             DisplayData();
+            identBox.Clear();
+            NameBox.Clear();
+            DescriptionBox.Clear();
+            quaBox.Clear();
 
         }
 
@@ -82,11 +86,33 @@ namespace EQUIBORROW
             con.Close();
             MessageBox.Show(identBox.Text.Trim() + " is updated successfully");
             DisplayData();
+            identBox.Clear();
+            NameBox.Clear();
+            DescriptionBox.Clear();
+            quaBox.Clear();
         }
 
         private void EquipmentView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Ensure the click is on a valid row, not the header
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = EquipmentView.Rows[e.RowIndex];
 
+                // Load values into the text boxes and controls
+                identBox.Text = row.Cells["Identification"].Value?.ToString();
+                NameBox.Text = row.Cells["NAME"].Value?.ToString();
+                DescriptionBox.Text = row.Cells["DESCRIPTION"].Value?.ToString();
+                TypeCombo.Text = row.Cells["TYPE"].Value?.ToString();
+
+                // regDATE is assumed to be a DateTime column
+                if (row.Cells["regDATE"].Value != null && DateTime.TryParse(row.Cells["regDATE"].Value.ToString(), out DateTime regDateValue))
+                {
+                    regDate.Value = regDateValue;
+                }
+
+                quaBox.Text = row.Cells["quantity"].Value?.ToString();
+            }
         }
 
         private void DeleteBtn_Click(object sender, EventArgs e)
@@ -100,6 +126,10 @@ namespace EQUIBORROW
             con.Close();
             MessageBox.Show(identBox.Text.Trim() + " is deleted successfully");
             DisplayData();
+            identBox.Clear();
+            NameBox.Clear();
+            DescriptionBox.Clear();
+            quaBox.Clear();
         }
 
         private void SearchBtn_Click(object sender, EventArgs e)
@@ -114,6 +144,13 @@ namespace EQUIBORROW
             sda.Fill(ds, "Equipment");
             EquipmentView.DataSource = ds.Tables["Equipment"];
             con.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Report rp = new Report();
+            rp.Show();
+            this.Hide();
         }
     }
 
