@@ -45,6 +45,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.TypeCombo = new System.Windows.Forms.ComboBox();
             this.regDate = new System.Windows.Forms.DateTimePicker();
+            this.quaBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.EquipmentView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +64,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(78, 100);
+            this.label2.Location = new System.Drawing.Point(78, 98);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(196, 37);
             this.label2.TabIndex = 1;
@@ -71,24 +73,26 @@
             // identBox
             // 
             this.identBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.identBox.Location = new System.Drawing.Point(85, 151);
+            this.identBox.Location = new System.Drawing.Point(85, 138);
+            this.identBox.Multiline = true;
             this.identBox.Name = "identBox";
-            this.identBox.Size = new System.Drawing.Size(502, 44);
+            this.identBox.Size = new System.Drawing.Size(439, 41);
             this.identBox.TabIndex = 2;
             // 
             // NameBox
             // 
             this.NameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NameBox.Location = new System.Drawing.Point(85, 262);
+            this.NameBox.Location = new System.Drawing.Point(85, 217);
+            this.NameBox.Multiline = true;
             this.NameBox.Name = "NameBox";
-            this.NameBox.Size = new System.Drawing.Size(512, 44);
+            this.NameBox.Size = new System.Drawing.Size(439, 40);
             this.NameBox.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(78, 211);
+            this.label3.Location = new System.Drawing.Point(78, 182);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 37);
             this.label3.TabIndex = 3;
@@ -98,7 +102,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(78, 430);
+            this.label4.Location = new System.Drawing.Point(78, 334);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 37);
             this.label4.TabIndex = 7;
@@ -107,16 +111,17 @@
             // DescriptionBox
             // 
             this.DescriptionBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DescriptionBox.Location = new System.Drawing.Point(85, 370);
+            this.DescriptionBox.Location = new System.Drawing.Point(85, 291);
+            this.DescriptionBox.Multiline = true;
             this.DescriptionBox.Name = "DescriptionBox";
-            this.DescriptionBox.Size = new System.Drawing.Size(512, 44);
+            this.DescriptionBox.Size = new System.Drawing.Size(439, 40);
             this.DescriptionBox.TabIndex = 6;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(78, 330);
+            this.label5.Location = new System.Drawing.Point(78, 260);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(177, 37);
             this.label5.TabIndex = 5;
@@ -161,6 +166,7 @@
             this.DeleteBtn.TabIndex = 12;
             this.DeleteBtn.Text = "Delete";
             this.DeleteBtn.UseVisualStyleBackColor = true;
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
             // searchBox
             // 
@@ -178,12 +184,13 @@
             this.SearchBtn.TabIndex = 14;
             this.SearchBtn.Text = "Search";
             this.SearchBtn.UseVisualStyleBackColor = true;
+            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(78, 537);
+            this.label6.Location = new System.Drawing.Point(78, 437);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 37);
             this.label6.TabIndex = 15;
@@ -198,18 +205,37 @@
             "Laptop",
             "Pen",
             "Phones"});
-            this.TypeCombo.Location = new System.Drawing.Point(85, 486);
+            this.TypeCombo.Location = new System.Drawing.Point(85, 374);
             this.TypeCombo.Name = "TypeCombo";
-            this.TypeCombo.Size = new System.Drawing.Size(512, 45);
+            this.TypeCombo.Size = new System.Drawing.Size(439, 45);
             this.TypeCombo.TabIndex = 17;
             // 
             // regDate
             // 
             this.regDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.regDate.Location = new System.Drawing.Point(85, 585);
+            this.regDate.Location = new System.Drawing.Point(85, 489);
             this.regDate.Name = "regDate";
-            this.regDate.Size = new System.Drawing.Size(512, 44);
+            this.regDate.Size = new System.Drawing.Size(505, 44);
             this.regDate.TabIndex = 18;
+            // 
+            // quaBox
+            // 
+            this.quaBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quaBox.Location = new System.Drawing.Point(85, 586);
+            this.quaBox.Multiline = true;
+            this.quaBox.Name = "quaBox";
+            this.quaBox.Size = new System.Drawing.Size(439, 31);
+            this.quaBox.TabIndex = 20;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(78, 546);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(136, 37);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Quantity";
             // 
             // Equipment
             // 
@@ -217,6 +243,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(1243, 644);
+            this.Controls.Add(this.quaBox);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.regDate);
             this.Controls.Add(this.TypeCombo);
             this.Controls.Add(this.label6);
@@ -263,5 +291,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox TypeCombo;
         private System.Windows.Forms.DateTimePicker regDate;
+        private System.Windows.Forms.TextBox quaBox;
+        private System.Windows.Forms.Label label7;
     }
 }
