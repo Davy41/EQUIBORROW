@@ -361,6 +361,7 @@
             this.Controls.Add(this.label2);
             this.Name = "Report";
             this.Text = "Report";
+            this.Load += new System.EventHandler(this.Report_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.reportGridView)).EndInit();
             this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);

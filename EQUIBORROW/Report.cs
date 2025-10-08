@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace EQUIBORROW
 {
     public partial class Report : Form
     {
-        private string constr = "Data source=DESKTOP-7AE7D3R;Initial Catalog=EquiBorrow;Integrated Security=True";
+        string constr = ConfigurationManager.ConnectionStrings["EquiBorrowDb"].ConnectionString;
 
         public Report()
         {
@@ -73,6 +74,11 @@ namespace EQUIBORROW
                 sda.Fill(ds, "Report");
                 reportGridView.DataSource = ds.Tables["Report"];
             }
+        }
+
+        private void Report_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

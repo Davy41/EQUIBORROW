@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -17,7 +18,7 @@ namespace EQUIBORROW
         {
             InitializeComponent();
         }
-        string constr = "Data Source=DESKTOP-7AE7D3R;Initial Catalog=EquiBorrow;Integrated Security=True";
+        string constr = ConfigurationManager.ConnectionStrings["EquiBorrowDb"].ConnectionString;
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(constr);

@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Configuration;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,7 +18,9 @@ namespace EQUIBORROW
         {
             InitializeComponent();
         }
-        string constr = "Data source=DESKTOP-7AE7D3R;Initial Catalog=EquiBorrow;Integrated Security=True";
+        // Use connection string from configuration
+        string constr = ConfigurationManager.ConnectionStrings["EquiBorrowDb"].ConnectionString;
+
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(emailBox.Text) || string.IsNullOrEmpty(pwdBox.Text) || string.IsNullOrEmpty(comboBox1.Text))

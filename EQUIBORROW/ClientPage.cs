@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -25,7 +26,7 @@ namespace EQUIBORROW
         {
             InitializeComponent();
         }
-        string constr = "Data source=DESKTOP-7AE7D3R;Initial Catalog=EquiBorrow;Integrated Security=True";
+        string constr = ConfigurationManager.ConnectionStrings["EquiBorrowDb"].ConnectionString;
 
         private void LoadAllEquipment()
         {
@@ -109,6 +110,7 @@ namespace EQUIBORROW
                         string borrowId = "BRW" + DateTime.Now.ToString("yyyyMMddHHmmss") + new Random().Next(10, 99).ToString();
                         if (borrowId.Length > 10)
                             borrowId = borrowId.Substring(0, 10);
+
 
                         // 2. Insert into Borrowing
                         string insertQuery = @"
