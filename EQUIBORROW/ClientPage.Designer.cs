@@ -43,9 +43,9 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -197,6 +197,14 @@
             this.panel3.Size = new System.Drawing.Size(200, 48);
             this.panel3.TabIndex = 60;
             // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.Gray;
+            this.panel8.Location = new System.Drawing.Point(196, 46);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(200, 48);
+            this.panel8.TabIndex = 19;
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.DarkGray;
@@ -212,14 +220,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 48);
             this.panel1.TabIndex = 56;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.Gray;
-            this.panel8.Location = new System.Drawing.Point(196, 46);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(200, 48);
-            this.panel8.TabIndex = 19;
             // 
             // panel9
             // 
@@ -273,7 +273,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(921, 36);
+            this.label3.Location = new System.Drawing.Point(910, 36);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 20);
             this.label3.TabIndex = 53;
